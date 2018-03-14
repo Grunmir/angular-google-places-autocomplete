@@ -49,7 +49,13 @@ angular.module('google.places', [])
                         },
                         hotkeys = [keymap.tab, keymap.enter, keymap.esc, keymap.up, keymap.down],
                         autocompleteService = new google.maps.places.AutocompleteService(),
-                        placesService = new google.maps.places.PlacesService(element[0]);
+                                          
+                        var map = new google.maps.Map(document.getElementById('kw-place'), {
+                           center: new google.maps.LatLng(0,0),
+                           zoom: 18
+                        });
+                        // var placesService = new google.maps.places.PlacesService(element[0]);
+                        var placesService = new google.maps.places.PlacesService(map);
 
                     (function init() {
                         $scope.query = '';
